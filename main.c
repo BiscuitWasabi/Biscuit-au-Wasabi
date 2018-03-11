@@ -15,7 +15,7 @@
 #define BOMBE  5
 #define BOUCLIER 6
 
-/**OBJETS  FIXE ET ALEATOIRE**/
+/**OBJETS  FIXE ET ALEATOIRE**/        // pourcentage actuelle de l'apparition des objets avec l'aléatoire
 #define AIMANT 7                       // 11%
 #define BOOST 8                        // 11%
 

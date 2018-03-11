@@ -48,7 +48,7 @@
                                      /**FONCTION**/
 
 
-/**CARTES (déconseiller de lire)**/
+/**CARTES (dÃ©conseiller de lire)**/
 void map_1(int** map){
     int i,j;
             for (i=0;i<TAILLE; i++)
@@ -133,8 +133,8 @@ void map_2 (int** map ){
                 map[i][j]=0;
             }
         }
-        for (i=2;i<9;i++){//de la ligne 2 à 9 avec Case-initial=0
-            for (j=TAILLE-2;j>TAILLE-9;j--){//parcours le tableau en haut à droite et descend jusqu'à [8][TAILLE-9]
+        for (i=2;i<9;i++){//de la ligne 2 Ã  9 avec Case-initial=0
+            for (j=TAILLE-2;j>TAILLE-9;j--){//parcours le tableau en haut Ã  droite et descend jusqu'Ã  [8][TAILLE-9]
                 if (j==TAILLE-i)//tracer la bisectrice de l'angle haut-droite
                    {map[i][j]=TROUE;
                    }
@@ -150,16 +150,16 @@ void map_2 (int** map ){
 
             }
         }
-        map[18][4]=TROUE;//diagonale haut-gauche à bas-droite |bas de la bouche
+        map[18][4]=TROUE;//diagonale haut-gauche Ã  bas-droite |bas de la bouche
         map[19][5]=TROUE;
         map[20][6]=TROUE;
         map[21][7]=TROUE;
 
-        map[14][4]=TROUE;//diagonale bas-gauche à haut-droit |coté gauche de la bouche
+        map[14][4]=TROUE;//diagonale bas-gauche Ã  haut-droit |cotÃ© gauche de la bouche
         map[13][5]=TROUE;
         map[12][6]=TROUE;
 
-        map[19][13]=TROUE;//diagonale bas-gauche à haut-droit| coté droit de la bouche
+        map[19][13]=TROUE;//diagonale bas-gauche Ã  haut-droit| cotÃ© droit de la bouche
         map[20][12]=TROUE;
         map[21][11]=TROUE;
 
@@ -173,7 +173,7 @@ void map_2 (int** map ){
       for (i=3;i<10;i++)// oeil gauche:
       {
           map[i][9]= TROUE;// trait vertical
-          map[9][i]=TROUE;//ici "i" gère les colones | oeil gauche : trait horizontal
+          map[9][i]=TROUE;//ici "i" gÃ¨re les colones | oeil gauche : trait horizontal
       }
       for (i=TAILLE-3;i>TAILLE-9;i--)//oeil droit
       {
@@ -207,7 +207,7 @@ void map_3(int** map){
         map[6][15]=TROUE;
         map[5][15]=TROUE;
         map[5][21]=TROUE;
-        map[6][21]=TROUE; //les murs en forment de C à gauche
+        map[6][21]=TROUE; //les murs en forment de C Ã  gauche
 
         if (i==21){
             for (j=4; j<=10; j++){
@@ -224,7 +224,7 @@ void map_3(int** map){
         map[19][15]=TROUE;
         map[20][15]=TROUE;
         map[19][21]=TROUE;
-        map[20][21]=TROUE;//les murs en forme de C à droite
+        map[20][21]=TROUE;//les murs en forme de C Ã  droite
 
         if (i==10){
             for (j=1; j<=7; j++){
@@ -331,7 +331,7 @@ void map_4 (int** map){
 }
 
 /**APPARITON DES JOUEURS**/
-void apprition_joueur(int** map, int carte  )                 //Positionner les joueurs selon la carte selectionnée
+void apprition_joueur(int** map, int carte  )                 //Positionner les joueurs selon la carte selectionnÃ©e
 {
     switch(carte)
     {
@@ -361,7 +361,7 @@ void apprition_joueur(int** map, int carte  )                 //Positionner les 
 void remplir_map(int** map)
 {
     int i,j;
-    srand(time(NULL));                          //  reinitisation de l'aléatoire
+    srand(time(NULL));                          //  reinitisation de l'alÃ©atoire
     for (i=0; i<=23; i++)
     {
         for (j=0; j<=23; j++)
@@ -391,7 +391,7 @@ void remplir_map(int** map)
 
 }
 
-void remplir_tab (int ** map , int carte)                     // Faire appelle à la carte selectionnée
+void remplir_tab (int ** map , int carte)                     // Faire appelle Ã  la carte selectionnÃ©e
 {
     /**DEFINITION CARTE**/
     switch (carte)
@@ -414,7 +414,7 @@ void remplir_tab (int ** map , int carte)                     // Faire appelle à
     }
 
     apprition_joueur(map, carte);                           // apparition des joueur selon la carte
-    /**REMPLISSAGE CARTE (objet à venir)**/
+    /**REMPLISSAGE CARTE (objet Ã  venir)**/
     remplir_map(map);                                       // remplissage de la carte sans objet
 
 
@@ -490,7 +490,7 @@ void mise_a_jour (int** map,int ** copie_map, int* objet, int* copie_objet, int*
 
 
 /**AUTRE INITIALISATION REINITIALISER A FOIS QU'UN AUTRE JOUEUR JOUE**/
-void initialisation_action(int* action)                       // Initialisation et remise à zero des mouvements possibles des joueurs
+void initialisation_action(int* action)                       // Initialisation et remise Ã  zero des mouvements possibles des joueurs
 {
     int i;
     for (i=0 ; i<3 ; i++)
@@ -604,13 +604,13 @@ void paralyse(int* statut, int joueur, int*compteur, int* objet)           //Obj
 {
 
     int i;
-    if (compteur[joueur%30]==0)                                         // vérification si objet a deja été utiliser une fois ou nn
+    if (compteur[joueur%30]==0)                                         // vÃ©rification si objet a deja Ã©tÃ© utiliser une fois ou nn
     {
         for(i=0 ; i<NBPLAYERS; i++)
         {
             if ((i !=(joueur % 30)))                                   // attaque sur les autres joueur
             {
-                if (statut[i] == BOUCLIER)                             // si bouclier le joueur est protégé
+                if (statut[i] == BOUCLIER)                             // si bouclier le joueur est protÃ©gÃ©
                 {
                     statut[i]=0;
                     objet[i]=0;
@@ -663,7 +663,7 @@ void utilisation_objet(int**map, int* position, int* compteur,int* score,int* st
     // a venir
     break;
   case BOOST:
-    // a venir (le plus compliqué)
+    // a venir (le plus compliquÃ©)
     break;
   default:
     break;
@@ -685,18 +685,18 @@ void utilisation_objet(int**map, int* position, int* compteur,int* score,int* st
 
 
 /**VERIFICATION**/
-void verification_deplacement (int** map ,int* action, int*objet,int* position ,int joueur, int* statut)   //Vérifie si le déplacement est autorisé ou non
+void verification_deplacement (int** map ,int* action, int*objet,int* position ,int joueur, int* statut)   //VÃ©rifie si le dÃ©placement est autorisÃ© ou non
 {
-    int deplacement_y = position[1]+ action[1];                         // coordonnée après deplacement y
-    int deplacement_x = position[0]+ action[0];                        // coordonnée après deplacement x
+    int deplacement_y = position[1]+ action[1];                         // coordonnÃ©e aprÃ¨s deplacement y
+    int deplacement_x = position[0]+ action[0];                        // coordonnÃ©e aprÃ¨s deplacement x
 
-    if ((action[0]>1) || (action[1]>1)|| action[0]<-1 || action[1]<-1)         // mouvement particulier quand superieur à 1
+    if ((action[0]>1) || (action[1]>1)|| action[0]<-1 || action[1]<-1)         // mouvement particulier quand superieur Ã  1
     {
-        if ((action[0]>2) || (action[1]>2)|| (action[0]<-2) || (action[1]<-2)) // si mouvement est autorisé
+        if ((action[0]>2) || (action[1]>2)|| (action[0]<-2) || (action[1]<-2)) // si mouvement est autorisÃ©
         {
             triche(action);
         }
-        else if ((action[2] == SAUT) && (action[2] == objet[(joueur%30)]))      // si l'objet SAUT et bien utilisé
+        else if ((action[2] == SAUT) && (action[2] == objet[(joueur%30)]))      // si l'objet SAUT et bien utilisÃ©
         {
             if ((((action[0]==2) &&(action[1]!=0))||((action[0]==-2) &&(action[1]!=0)))||(((action[0]!=0) &&(action[1]==2))|| ((action[0]!=0) &&(action[1]==-2)))) // si le deplacement est bon avec l'objet SAUT
             {
@@ -717,7 +717,7 @@ void verification_deplacement (int** map ,int* action, int*objet,int* position ,
     {
         triche(action);
     }
-    else if ((map[deplacement_y][deplacement_x]== TROUE )|| (map[deplacement_y][deplacement_x]>=30)) // verification si le deplacement n'est pas interdit par les régles
+    else if ((map[deplacement_y][deplacement_x]== TROUE )|| (map[deplacement_y][deplacement_x]>=30)) // verification si le deplacement n'est pas interdit par les rÃ©gles
     {
         triche(action);
     }
@@ -729,11 +729,11 @@ void verification_deplacement (int** map ,int* action, int*objet,int* position ,
         }
 }
 
-void verification_objet_bombe(int** map,int* position, int* score, int* objet, int*action,int* compteur,int*statut, int joueur) // Vérifie si l'objet utilisé esr autorisé ou nn plus utilisation de la bombe si le joueuer le souhaite
+void verification_objet_bombe(int** map,int* position, int* score, int* objet, int*action,int* compteur,int*statut, int joueur) // VÃ©rifie si l'objet utilisÃ© esr autorisÃ© ou nn plus utilisation de la bombe si le joueuer le souhaite
 {
     if ((action[2]>3))                                      // si objet utiliserr
     {
-        if (objet[(joueur%30)]!= action[2])                 // vérification si objet utilisé correspond a ce que le joueur possède
+        if (objet[(joueur%30)]!= action[2])                 // vÃ©rification si objet utilisÃ© correspond a ce que le joueur possÃ¨de
         {
             triche(action);
         }
@@ -748,14 +748,14 @@ void verification_objet_bombe(int** map,int* position, int* score, int* objet, i
 void deplacement(int** map, int* action,int* objet, int*score , int* position,int* compteur, int*statut, int joueur )
 {
     int save;
-    int deplacement_y = position[1]+ action[1];                         // coordonnée après deplacement
-    int deplacement_x = position[0]+ action[0];                         // coordonnée après deplacement
+    int deplacement_y = position[1]+ action[1];                         // coordonnÃ©e aprÃ¨s deplacement
+    int deplacement_x = position[0]+ action[0];                         // coordonnÃ©e aprÃ¨s deplacement
 
-    if (action[0]!= action[1])                                          // vérification si pas 0 0
+    if (action[0]!= action[1])                                          // vÃ©rification si pas 0 0
     {
-        save = map[deplacement_y][deplacement_x];                       // sauvegarde de la valeur où le joueur veut aller
+        save = map[deplacement_y][deplacement_x];                       // sauvegarde de la valeur oÃ¹ le joueur veut aller
         map[deplacement_y][deplacement_x]=joueur;                       // faire avancer le joueur
-        map[(position[1])][(position[0])]=VIDE;                         // mettre à 0 la case où le joueur était
+        map[(position[1])][(position[0])]=VIDE;                         // mettre Ã  0 la case oÃ¹ le joueur Ã©tait
 
         if (save<=3 && statut [joueur%30]== DOUBLEPOINT)                // si point et objet double point
         {
@@ -773,22 +773,22 @@ void deplacement(int** map, int* action,int* objet, int*score , int* position,in
         {
             if (statut[joueur%30]=STOP)                                 // si joueur avait objet STOP
             {
-                fin_paralyse(objet,statut,joueur);                      // retire paralyser à tous les autre joueur
+                fin_paralyse(objet,statut,joueur);                      // retire paralyser Ã  tous les autre joueur
             }
             objet[(joueur % 30)]= save;                                 // met objet dans le tableau objet du joueur
             compteur[joueur%30]=0;
-            statut[joueur%30]=0;                                        // remise à zero des compeur & statut
+            statut[joueur%30]=0;                                        // remise Ã  zero des compeur & statut
             objet_statuts(objet, score, statut , joueur);               // l'objet dans le statut ou utilisation objet simple
         }
     }
     else
     {
-        //printf("jouer %d ne bouge pas \n", joueur);                   //afficher que le joueur n'a pas bougé
+        //printf("jouer %d ne bouge pas \n", joueur);                   //afficher que le joueur n'a pas bougÃ©
     }
 }
 
 
-void negative(int* score, int joueur)                                     // remet les points du joueur à 0 si son score inferieur à 0
+void negative(int* score, int joueur)                                     // remet les points du joueur Ã  0 si son score inferieur Ã  0
 {
     if (score[joueur % 30 ]<0)
     {
@@ -798,7 +798,7 @@ void negative(int* score, int joueur)                                     // rem
 
 
 
-/**IA**/                                                                  // IA à programmer par les joueurs
+/**IA**/                                                                  // IA Ã  programmer par les joueurs
 void ia_1(int* action,int** map,int* objet,int* score,int* position,int* statut,int*compteur, int current_player)
 {
        action[2]=0;
@@ -846,18 +846,18 @@ void gagnant(int* score)
     j=0;
     for (i=0 ; i<NBPLAYERS; i++)
     {
-        classement[i]=score[i];                 // donne les valeur de score à classement
+        classement[i]=score[i];                 // donne les valeur de score Ã  classement
     }
     trie_a_bulle(classement);
     do{
         suivant=0;
         for(i=0;i< NBPLAYERS;i++)               // on regarde a partir du score le plus haut afin de determiner le joueur
         {
-            if (classement[j]==score[i])
+            if (classement[j]==score[i])       // retirer le commentaire pour voir le printf
             {
-                printf("joueur %d tu es classer %d / %d avec un score de %d",(i+30),rang,NBPLAYERS,score[i]);
-                printf("\n");
-                suivant= suivant+1;             // si égaliter les personne aurons le rang le plus haut
+              /*  printf("joueur %d tu es classer %d / %d avec un score de %d",(i+30),rang,NBPLAYERS,score[i]);
+                printf("\n");*/
+                suivant= suivant+1;             // si Ã©galiter les personne aurons le rang le plus haut
             }
         }
         j=j+suivant;
@@ -906,7 +906,7 @@ void jeux_ia ()
 
 
     int current_player = 0;
-    current_player= rand()%2;                                                       // Premier joueurs aléatoire
+    current_player= rand()%2;                                                       // Premier joueurs alÃ©atoire
 
     if (current_player==1)
         {
@@ -924,12 +924,12 @@ void jeux_ia ()
         for(j = 1; j <= NBPLAYERS; j++)
         {
             recherche_position(map,position, copie_position, current_player);     // cherche position du joueur
-            initialisation_action(action);                                         // remet action à 0
+            initialisation_action(action);                                         // remet action Ã  0
             switch(current_player) {                                              // choix du joueur
-                case PLAYER1:                                                      // joueur 30 avec toute les données auquel il à accès
+                case PLAYER1:                                                      // joueur 30 avec toute les donnÃ©es auquel il Ã  accÃ¨s
                     ia_1(action, copie_map, copie_objet, copie_score, copie_position,copie_statut,copie_compteur, current_player);
                     break;
-                case PLAYER2:                                                      // joueur 30 avec toute les données auquel il à accès
+                case PLAYER2:                                                      // joueur 30 avec toute les donnÃ©es auquel il Ã  accÃ¨s
                     ia_2(action, copie_map, copie_objet, copie_score, copie_position,copie_statut,copie_compteur, current_player);
                 default:
                     break;
@@ -938,12 +938,12 @@ void jeux_ia ()
             verification_objet_bombe( map, position, score, objet,action, compteur ,statut_joueur,current_player);      // verification de l'objet et utilisation bombe
             deplacement(map,action,objet,score,position, compteur,statut_joueur,current_player);                        // appelle fonction de deplacement
             utilisation_objet(map,position, compteur,score,statut_joueur,objet,action, current_player);                  // appelle fonction qui utilise objet
-            negative(score,current_player);                                                                             // fonction qui met le score à 0 si négatif
+            negative(score,current_player);                                                                             // fonction qui met le score Ã  0 si nÃ©gatif
             mise_a_jour(map,copie_map, objet, copie_objet, score, copie_score, statut_joueur, copie_statut, compteur, copie_compteur); // mise a jour des copies
 
             current_player = current_player + 1;            // changement de joueur
 
-            if((current_player % 30) == NBPLAYERS)          // remet le joueurs 30 si tout le monde au dessus de lui a joué
+            if((current_player % 30) == NBPLAYERS)          // remet le joueurs 30 si tout le monde au dessus de lui a jouÃ©
             {
                     current_player = 30;
             }
@@ -952,12 +952,12 @@ void jeux_ia ()
     gagnant(score);                                         // fonction qui fait le classment
 
 
-   for (i=0;i<TAILLE;i++){                               // affichage du jeu sans SDL
-        for (j=0;j<TAILLE;j++)
+   /*for (i=0;i<TAILLE;i++){                               // affichage du jeu sans SDL retirer les commentaire pour voir la map
+        for (j=0;j<TAILLE;j++)                        
         {
             printf("%3d", map[i][j]);
         }
-        printf("\n");
+        printf("\n");*/
     }
 
     // On ne peut pas free les tableaux cela fait planter le programme

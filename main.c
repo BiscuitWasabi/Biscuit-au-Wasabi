@@ -15,7 +15,7 @@
 #define BOMBE  5
 #define BOUCLIER 6
 
-/**OBJETS  FIXE ET ALEATOIRE**/        // pourcentage actuelle de l'apparition des objets avec l'aléatoire
+/**OBJETS  FIXE ET ALEATOIRE**/        // pourcentage actuel de l'apparition des objets avec l'aléatoire
 #define AIMANT 7                       // 11%
 #define BOOST 8                        // 11%
 
@@ -29,11 +29,10 @@
 #define DOUBLEPOINT 15                 // 11%
 
 /**ALEATOIRE**/
-#define ALEATOIRE 16                   // OBJET QUI GENERE LES OBJETS ALEATOIRE
+#define ALEATOIRE 16                   // OBJET QUI GENERE LES OBJETS ALEATOIRES
 
 /**STATUT SPECIAL**/
-#define PARALYSER 20                  // DONNE LE STATUT PARALYSER AU JOUEUR
-
+#define PARALYSER 20                  // DONNE LE STATUT PARALYSé AU JOUEUR
 
 /**JOUEUR**/
 #define NBPLAYERS 2
@@ -765,7 +764,7 @@ void deplacement(int** map, int* action,int* objet, int*score , int* position,in
         {
             score[(joueur % 30)]= (score[(joueur % 30)]+ save);
         }
-        else if (save== ALEATOIRE)                                      // objet aleatoire
+        else if (save== ALEATOIRE)                                      // objet aléatoire
         {
             // a venir
         }
@@ -773,11 +772,11 @@ void deplacement(int** map, int* action,int* objet, int*score , int* position,in
         {
             if (statut[joueur%30]=STOP)                                 // si joueur avait objet STOP
             {
-                fin_paralyse(objet,statut,joueur);                      // retire paralyser à tous les autre joueur
+                fin_paralyse(objet,statut,joueur);                      // retire "paralysé" à tous les autres joueurs
             }
             objet[(joueur % 30)]= save;                                 // met objet dans le tableau objet du joueur
             compteur[joueur%30]=0;
-            statut[joueur%30]=0;                                        // remise à zero des compeur & statut
+            statut[joueur%30]=0;                                        // remise à zero des compteurs et des statuts
             objet_statuts(objet, score, statut , joueur);               // l'objet dans le statut ou utilisation objet simple
         }
     }
@@ -788,7 +787,7 @@ void deplacement(int** map, int* action,int* objet, int*score , int* position,in
 }
 
 
-void negative(int* score, int joueur)                                     // remet les points du joueur à 0 si son score inferieur à 0
+void negative(int* score, int joueur)                                     // remet les points du joueur à 0 si son score est inferieur à 0
 {
     if (score[joueur % 30 ]<0)
     {
@@ -815,7 +814,7 @@ void ia_2 (int* action,int** map,int* objet,int* score,int* position,int* statut
 
 
 
-void trie_a_bulle(int* tab)                                                //fonction qui fait un trie a bulle
+void trie_a_bulle(int* tab)                                                //fonction qui fait un tri à bulles
 {
     int i;
     int sauvegarde;
@@ -846,23 +845,23 @@ void gagnant(int* score)
     j=0;
     for (i=0 ; i<NBPLAYERS; i++)
     {
-        classement[i]=score[i];                 // donne les valeur de score à classement
+        classement[i]=score[i];                 // donne les valeurs de score à classement
     }
     trie_a_bulle(classement);
     do{
         suivant=0;
-        for(i=0;i< NBPLAYERS;i++)               // on regarde a partir du score le plus haut afin de determiner le joueur
+        for(i=0;i< NBPLAYERS;i++)               // on regarde à partir du score le plus haut afin de determiner le joueur
         {
             if (classement[j]==score[i])       // retirer le commentaire pour voir le printf
             {
-              /*  printf("joueur %d tu es classer %d / %d avec un score de %d",(i+30),rang,NBPLAYERS,score[i]);
+              /*  printf("joueur %d tu es classé %d / %d avec un score de %d",(i+30),rang,NBPLAYERS,score[i]);
                 printf("\n");*/
-                suivant= suivant+1;             // si égaliter les personne aurons le rang le plus haut
+                suivant= suivant+1;             // si égalité les personnes auront le rang le plus haut.
             }
         }
         j=j+suivant;
         rang=rang + suivant;
-    }while (j<NBPLAYERS);                       // on continue jusqu'a ce que le tableau classment soit entierement parcourru
+    }while (j<NBPLAYERS);                       // on continue jusqu'a ce que le tableau classement soit entièrement parcouru
 
 }
 
@@ -890,15 +889,15 @@ void jeux_ia ()
     int* copie_objet = malloc(NBPLAYERS*sizeof(int));                              // copie des objets
 
     int* statut_joueur= malloc(NBPLAYERS*sizeof(int));                              // statut des joueurs
-    int* copie_statut= malloc(NBPLAYERS*sizeof(int));                              // copie des statues
+    int* copie_statut= malloc(NBPLAYERS*sizeof(int));                              // copie des statuts
 
-    int* compteur = malloc(NBPLAYERS*sizeof(int));                                 // compteur: compte la durer d'utilisation des objets des joueurs
+    int* compteur = malloc(NBPLAYERS*sizeof(int));                                 // compteur: compte la durée d'utilisation des objets des joueurs
     int* copie_compteur = malloc(NBPLAYERS*sizeof(int));                          // copie_ compteur
 
     /**Appel la fonction qui va initialiser le jeu **/
     initialisation_jeux(map, copie_map , objet , copie_objet , score, copie_score, statut_joueur, copie_statut, compteur, copie_compteur);
 
-    int* position = (int*) malloc(2 * sizeof(int));                               // la position  des joueurs
+    int* position = (int*) malloc(2 * sizeof(int));                               // la position des joueurs
     int* copie_position = (int*) malloc(2 * sizeof(int));                         // copie position
 
     int* action  = (int*) malloc(3 * sizeof(int));                                // action du joueur: 0=x(ligne) 1=y (ligne) 2= objet
@@ -906,7 +905,7 @@ void jeux_ia ()
 
 
     int current_player = 0;
-    current_player= rand()%2;                                                       // Premier joueurs aléatoire
+    current_player= rand()%2;                                                       // Premier joueur aléatoire
 
     if (current_player==1)
         {
@@ -926,7 +925,7 @@ void jeux_ia ()
             recherche_position(map,position, copie_position, current_player);     // cherche position du joueur
             initialisation_action(action);                                         // remet action à 0
             switch(current_player) {                                              // choix du joueur
-                case PLAYER1:                                                      // joueur 30 avec toute les données auquel il à accès
+                case PLAYER1:                                                      // joueur 30 avec toute les données auquelles il a accès
                     ia_1(action, copie_map, copie_objet, copie_score, copie_position,copie_statut,copie_compteur, current_player);
                     break;
                 case PLAYER2:                                                      // joueur 30 avec toute les données auquel il à accès
@@ -949,7 +948,7 @@ void jeux_ia ()
             }
         }
     }
-    gagnant(score);                                         // fonction qui fait le classment
+    gagnant(score);                                         // fonction qui fait le classement
 
 
    /*for (i=0;i<TAILLE;i++){                               // affichage du jeu sans SDL retirer les commentaire pour voir la map

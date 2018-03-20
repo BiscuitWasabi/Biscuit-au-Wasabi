@@ -43,7 +43,7 @@
 /**NOMBRE DE TOURS**/
 #define TURNS 3
 
-                                    // voir le plateau avec nombre allez ligne 955 environ retirer commentaire de la boucle for
+                    // voir le plateau avec nombre allez ligne 955 environ retirer commentaire de la boucle for
 
                                      /**FONCTION**/
 
@@ -771,7 +771,7 @@ void deplacement(int** map, int* action,int* objet, int*score , int* position,in
         }
         else                                                            // sinon objet
         {
-            if (statut[joueur%30]=STOP)                                 // si joueur avait objet STOP
+            if (statut[joueur%30]==STOP)                                 // si joueur avait objet STOP
             {
                 fin_paralyse(objet,statut,joueur);                      // retire "paralysé" à tous les autres joueurs
             }
@@ -855,8 +855,8 @@ void gagnant(int* score)
         {
             if (classement[j]==score[i])       // retirer le commentaire pour voir le printf
             {
-              /*  printf("joueur %d tu es classé %d / %d avec un score de %d",(i+30),rang,NBPLAYERS,score[i]);
-                printf("\n");*/
+                printf("joueur %d tu es classé %d / %d avec un score de %d",(i+30),rang,NBPLAYERS,score[i]);
+                printf("\n");
                 suivant= suivant+1;             // si égalité les personnes auront le rang le plus haut.
             }
         }
